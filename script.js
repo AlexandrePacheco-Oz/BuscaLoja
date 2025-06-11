@@ -315,7 +315,8 @@ function limparTudo() {
   const campos = [
     "searchInput", "chamado", "cervello", "telefoneLoja", "telefoneGerente",
     "patrimonio", "problema", "chamadoTecnico", "descricaoChamado", "procedimentosRemotos",
-    "modelo","pecaSerEnviado", "modeloSerEnviado"
+    "modelo", "pecaSerEnviado", "modeloSerEnviado",
+    "projeto", "obra", "lojaCLI", "sequencia", "sku" 
   ];
 
   campos.forEach(id => {
