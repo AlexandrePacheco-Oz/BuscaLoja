@@ -52,9 +52,7 @@ function copiarCervello() {
 Seu chamado foi recebido pela Arklok e, em breve, iremos atender sua solicitação.
 Chamado Cervello: ${cervello}
 
-Este é o agendamento da visita técnica para atuação local.
-As informações sobre a visita, bem como os dados do técnico que irá comparecer na unidade será atualizado.
-Quaisquer dúvidas estou à disposição.`;
+Prezado(a), o chamado foi encaminhado à equipe de Field Service. Pedimos a gentileza de aguardar o agendamento da visita técnica.`;
 
   navigator.clipboard.writeText(texto)
     .then(() => alert("Texto do Cervello copiado!"));
