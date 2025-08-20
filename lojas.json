@@ -1319,16 +1319,16 @@
     "email": "emp1392@pmenos.com.br",
     "razaoSocial": "EMPREENDIMENTOS PAGUE MENOS S/A"
   },
-  "1393": {
-    "Loja": "1393 - MOM01-Mombaca-CE",
+  "58": {
+    "Loja": "58 - MOM01-Mombaca-CE",
     "cidade": "Mombaça",
     "Estado": "Ceará",
     "UF": "CE",
     "rua": "Avenida Antônio Jaime Benevides Filho, 96",
     "bairro": "Centro",
     "cep": "63.610-000",
-    "CNPJ": "06.626.253/1393-11",
-    "email": "emp1393@pmenos.com.br",
+    "CNPJ": "06.626.253/0058-97",
+    "email": "emp0058@pmenos.com.br",
     "razaoSocial": "EMPREENDIMENTOS PAGUE MENOS S/A"
   },
   "1395": {
@@ -6240,3 +6240,4 @@
     "razaoSocial": "EMPREENDIMENTOS PAGUE MENOS S/A"
   }
 }
+
