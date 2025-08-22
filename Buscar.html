@@ -5,21 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Busca de Loja</title>
   <link rel="stylesheet" href="style.css">
+ 
   <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
 </head>
 <body>
   
   <div class="main-login">
-    
-     
     <div class="card-login">
-      <img src="./Login/innovation-animate.svg"  class="left-animacao" alt="gato animação"> 
+      <img src="./Login/innovation-animate.svg" class="left-animacao" alt="gato animação"> 
       <h1>Buscar Loja</h1> 
+      
+      <!-- Buscar loja -->
       <div class="textfield">
         <input type="text" id="searchInput" placeholder="Ex: 7276">
       </div>
       <button class="btn-login" onclick="buscarLoja()">Buscar</button>
 
+      <!-- Buscar IP -->
+      <button class="btn-login" onclick="mostrarCampoPDV()">Buscar IP</button>
+      <div class="textfield">
+        <div id="campoPDV" class="hidden" style="margin-top:10px;">
+          <input type="text" id="pdvInput" placeholder="Digite o número do PDV">
+          <button id="btnConfirmarPDV" class="btn-login hidden" onclick="buscarIP()">Confirmar</button>
+        </div>
+      </div>
+      
+      <!-- Aqui vai aparecer o IP buscado -->
+      <div id="meuIP" style="margin-top:10px; color:#fff;"></div>
+
+      <!-- Campos extras -->
       <div id="camposExtras" class="hidden">
         <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
         <div class="textfield"><input type="text" id="telefoneLoja" placeholder="Telefone Loja"></div>
@@ -54,6 +68,7 @@
       </div>
 
       <button class="btn-login" onclick="limparTudo()">Limpar Tudo</button>
+     
       <br>
       <a href="https://arklokoffice-my.sharepoint.com/:f:/g/personal/ftp_parceiros_arklokoffice_onmicrosoft_com/EowaVWVNCFRBg7SDWHp7rWgBMfrCeVdigpAamyvchCdklQ?e=GaRMy7" style="color:#f0ffffde;" target="_blank">LINK DA IMAGEM</a><br>
       <p style="color:#f0ffff94;">Senha: VW*6vsv6T#</p>
