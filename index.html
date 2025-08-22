@@ -1,86 +1,33 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-br">
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busca de Loja</title>
-  <link rel="stylesheet" href="style.css">
- 
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <title>Login</title>
+  <link rel="stylesheet" href="./Login/login.css">
 </head>
 <body>
-  
-  <div class="main-login">
-    <div class="card-login">
-      <img src="./Login/innovation-animate.svg" class="left-animacao" alt="gato animação"> 
-      <h1>Buscar Loja</h1> 
-      
-      <!-- Buscar loja -->
-      <div class="textfield">
-        <input type="text" id="searchInput" placeholder="Ex: 7276">
-      </div>
-      <button class="btn-login" onclick="buscarLoja()">Buscar</button>
-
-      <!-- Buscar IP -->
-      <button class="btn-login" onclick="mostrarCampoPDV()">Buscar IP</button>
-      <div class="textfield">
-        <div id="campoPDV" class="hidden" style="margin-top:10px;">
-          <input type="text" id="pdvInput" placeholder="Digite o número do PDV">
-          <button id="btnConfirmarPDV" class="btn-login hidden" onclick="buscarIP()">Confirmar</button>
+  <div class="main-login"> 
+    <div class="left-login">
+      <h1>Faça Login</h1>
+      <img src="./Login/cat.svg" class="left-animacao" alt="gato animação"> 
+    </div>
+    <div class="right-login">
+      <div class="card-login">
+        <h1>LOGIN</h1>
+        <div class="textfield">
+          <label for="usuario">Usuário</label>
+          <input type="text" id="login" name="usuario" placeholder="Usuário">
         </div>
+        <div class="textfield">
+          <label for="senha">Senha</label>
+          <input type="password" id="senha" name="senha" placeholder="Senha">
+        </div>
+        <button type="submit" class="btn-login" onclick="logar(); return false">Login</button>
       </div>
-      
-      <!-- Aqui vai aparecer o IP buscado -->
-      <div id="meuIP" style="margin-top:10px; color:#fff;"></div>
-
-      <!-- Campos extras -->
-      <div id="camposExtras" class="hidden">
-        <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
-        <div class="textfield"><input type="text" id="telefoneLoja" placeholder="Telefone Loja"></div>
-        <div class="textfield"><input type="text" id="telefoneGerente" placeholder="Telefone Gerente"></div>
-        <div class="textfield"><input type="text" id="patrimonio" placeholder="Patrimônio Arklok"></div>
-        <div class="textfield"><textarea id="problema" placeholder="Problema Encontrado"></textarea></div>
-
-        <button class="btn-login" onclick="copiarInformacoes()">Escopo de Atendimento Cervello</button>
-        <hr>
-        <div class="textfield"><input type="text" id="cervello" placeholder="Chamado Cervello"></div>
-        <button class="btn-login" onclick="copiarCervello()">Log de Atendimento</button>
-        <hr>
-        <div class="textfield"><textarea id="procedimentosRemotos" placeholder="Procedimentos executados remotamente"></textarea></div>
-        <button class="btn-login" onclick="copiarChamadoTecnico()">Solicitar Técnico Windows</button>
-        <hr>
-        <button class="btn-login" onclick="copiarChamadoTecnicoLibrix()">Solicitar Técnico Librix</button>
-        <hr>
-        <button class="btn-login" onclick="solicitacaoTecnicaEquipamentosGerais()">Solicitação Técnica Equipamentos Gerais</button>
-        <hr>
-        <div class="textfield"><input type="text" id="modelo" placeholder="Modelo"></div>
-        <div class="textfield"><input type="text" id="modeloSerEnviado" placeholder="Modelo (S) Envio"></div>
-        <div class="textfield"><input type="text" id="projeto" placeholder="Projeto"></div>
-        <div class="textfield"><input type="text" id="obra" placeholder="Obra"></div>
-        <div class="textfield"><input type="text" id="lojaCLI" placeholder="Loja CLI"></div>
-        <div class="textfield"><input type="text" id="sequencia" placeholder="Sequência"></div>
-        <div class="textfield"><input type="text" id="sku" placeholder="SKU"></div>
-        <button class="btn-login" onclick="solicitacaoDeEquipamento()">Solicitação de Equipamento</button>
-        <hr>
-        <div class="textfield"><input type="text" id="pecaSerEnviado" placeholder="Peça"></div>
-        <button class="btn-login" onclick="solicitacaoDePeca()">Solicitação De Peça</button>
-        <button class="btn-login" onclick="SolicitacaoEstoque()">Solicitação Estoque</button>
-      </div>
-
-      <button class="btn-login" onclick="limparTudo()">Limpar Tudo</button>
-     
-      <br>
-      <a href="https://arklokoffice-my.sharepoint.com/:f:/g/personal/ftp_parceiros_arklokoffice_onmicrosoft_com/EowaVWVNCFRBg7SDWHp7rWgBMfrCeVdigpAamyvchCdklQ?e=GaRMy7" style="color:#f0ffffde;" target="_blank">LINK DA IMAGEM</a><br>
-      <p style="color:#f0ffff94;">Senha: VW*6vsv6T#</p>
     </div>
   </div>
 
-  <script src="script.js"></script>
-  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
-  <script>
-    $('#telefoneLoja').mask('(00) 00000-0000');
-    $('#telefoneGerente').mask('(00) 00000-0000');
-  </script>
+  <script src="./Login/login.js"></script>
 </body>
 </html>
