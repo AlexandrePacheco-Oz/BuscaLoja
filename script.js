@@ -149,8 +149,10 @@ function solicitacaoTecnicaEquipamentosGerais(){
   const procedimentos = document.getElementById("procedimentosRemotos").value.trim();
 
   const textoTecnico = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
+  
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
+
 Chamado: ${chamado}
 Descrição Do Chamado: ${problema}
 Procedimentos executados remotamente: ${procedimentos}
@@ -340,3 +342,4 @@ function limparTudo() {
   if (document.getElementById("meuIP")) document.getElementById("meuIP").innerText = "";
   if (document.getElementById("camposExtras")) document.getElementById("camposExtras").classList.add("hidden");
 }
+
