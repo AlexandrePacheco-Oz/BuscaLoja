@@ -33,7 +33,7 @@ Chamado Externo: ${chamado}
 Telefone Loja: ${telLoja}
 Telefone Gerente: ${telGerente}
 E-mail: ${dados.email}
-Patrimônio Arklok: ${patrimonio}
+Número de plaqueta: ${patrimonio}
 Endereço: ${dados.rua}
 Bairro: ${dados.bairro}
 CEP: ${dados.cep}
@@ -66,12 +66,9 @@ function copiarChamadoTecnico() {
   const textoTecnico = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos Loja - ${id}
-
 Chamado: ${chamado}
-
 Descrição Do Chamado: ${problema}
 Procedimentos executados remotamente: ${procedimentos}
-
 Endereço: ${dados.rua}
 Bairro: ${dados.bairro}
 CEP: ${dados.cep}
@@ -104,15 +101,11 @@ function copiarChamadoTecnicoLibrix(){
   const procedimentos = document.getElementById("procedimentosRemotos").value.trim();
 
   const textoTecnico = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
-  
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
-
 Chamado: ${chamado}
-
 Descrição Do Chamado: ${problema}
 Procedimentos executados remotamente: ${procedimentos}
-
 Endereço: ${dados.rua}
 Bairro: ${dados.bairro}
 CEP: ${dados.cep}
@@ -158,12 +151,9 @@ function solicitacaoTecnicaEquipamentosGerais(){
   const textoTecnico = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
-
 Chamado: ${chamado}
-
 Descrição Do Chamado: ${problema}
 Procedimentos executados remotamente: ${procedimentos}
-
 Endereço: ${dados.rua}
 Bairro: ${dados.bairro}
 CEP: ${dados.cep}
@@ -185,17 +175,20 @@ function solicitacaoDeEquipamento(){
   const modelo1 = document.getElementById("modelo").value.trim();
   const modeloS = document.getElementById("modeloSerEnviado").value.trim();
   const lojaCLI = document.getElementById("lojaCLI").value.trim();
+  const CodCli = document.getElementById("CodCli").value.trim();
   const sequencia = document.getElementById("sequencia").value.trim(); 
   const sku = document.getElementById("sku").value.trim(); 
 
   const textoTecnico = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
-Patrimônio Com Problema: ${patrimonio}
+Número de plaqueta Com Problema: ${patrimonio}
 Modelo: ${modelo1}
 Modelo (S) Envio: ${modeloS}
-Projeto: ${projeto}
-Obra: ${obra}
-Loja CLI: ${lojaCLI}
-Sequência: ${sequencia}
+
+Contrato: ${projeto}
+Termo: ${obra}
+Código do cliente: ${CodCli}
+LOJA: ${lojaCLI}
+OBSERVAÇÃO: ${sequencia}
 SKU: ${sku}
 Imagem: [ ] SIM  [ ] NÃO [ ] N/A
 Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
@@ -239,17 +232,20 @@ function solicitacaoDePeca(){
   const modelo1 = document.getElementById("modelo").value.trim();
   const lojaCLI = document.getElementById("lojaCLI").value.trim();
   const sequencia = document.getElementById("sequencia").value.trim(); 
+  const CodCli = document.getElementById("CodCli").value.trim();
   const sku = document.getElementById("sku").value.trim(); 
   const peca = document.getElementById("pecaSerEnviado").value.trim();
 
   const textoTecnico = `[ X ] NECESSÁRIO TROCA DE PEÇA
-Patrimônio Com Problema: ${patrimonio}
+Número de plaqueta: ${patrimonio}
 Modelo: ${modelo1}
 Peça: ${peca}
-Projeto: ${projeto}
-Obra: ${obra}
-Loja CLI: ${lojaCLI}
-Sequência: ${sequencia}
+
+Contrato: ${projeto}
+Termo: ${obra}
+Código do cliente: ${CodCli}
+LOJA: ${lojaCLI}
+OBSERVAÇÃO: ${sequencia}
 SKU: ${sku}
 Imagem: [ ] SIM  [ ] NÃO [ ] N/A
 Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
@@ -344,4 +340,3 @@ function limparTudo() {
   if (document.getElementById("meuIP")) document.getElementById("meuIP").innerText = "";
   if (document.getElementById("camposExtras")) document.getElementById("camposExtras").classList.add("hidden");
 }
-
