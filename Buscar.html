@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Busca de Loja</title>
+  <link rel="stylesheet" href="style.css">
+ 
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  
+  <div class="main-login">
+    <div class="card-login">
+      <img src="./Login/innovation-animate.svg" class="left-animacao" alt="gato animação"> 
+      <h1>Buscar Loja</h1> 
+      
+      <!-- Buscar loja -->
+      <div class="textfield">
+        <input type="text" id="searchInput" placeholder="Ex: 7276">
+      </div>
+      <button class="btn-login" onclick="buscarLoja()">Buscar</button>
+
+      <!-- Buscar IP -->
+      <button class="btn-login" onclick="mostrarCampoPDV()">Buscar IP</button>
+      <div class="textfield">
+        <div id="campoPDV" class="hidden" style="margin-top:10px;">
+          <input type="text" id="pdvInput" placeholder="Digite o número do PDV">
+          <button id="btnConfirmarPDV" class="btn-login hidden" onclick="buscarIP()">Confirmar</button>
+        </div>
+      </div>
+      
+      <!-- Aqui vai aparecer o IP buscado -->
+      <div id="meuIP" style="margin-top:10px; color:#fff;"></div>
+
+      <!-- Campos extras -->
+      <div id="camposExtras" class="hidden">
+        <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
+        <div class="textfield">
+          <div class="input-with-button">
+            <input type="text" id="telefoneLoja" placeholder="Telefone Loja">
+            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneLoja')" title="Ligar">📞</button>
+          </div>
+        </div>
+        <div class="textfield">
+          <div class="input-with-button">
+            <input type="text" id="telefoneGerente" placeholder="Telefone Gerente">
+            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneGerente')" title="Ligar">📞</button>
+          </div>
+        </div>
+        <div class="textfield"><input type="text" id="patrimonio" placeholder="Número de plaqueta"></div>
+        <div class="textfield"><textarea id="problema" placeholder="Problema Encontrado"></textarea></div>
+
+        <button class="btn-login" onclick="copiarInformacoes()">Escopo de Atendimento Cervello</button>
+        <hr>
+        <div class="textfield"><input type="text" id="cervello" placeholder="Chamado Cervello"></div>
+        <button class="btn-login" onclick="copiarCervello()">Log de Atendimento</button>
+        <hr>
+        <div class="textfield"><textarea id="procedimentosRemotos" placeholder="Procedimentos executados remotamente"></textarea></div>
+        <button class="btn-login" onclick="copiarChamadoTecnico()">Solicitar Técnico Windows</button>
+        <hr>
+        <button class="btn-login" onclick="copiarChamadoTecnicoLibrix()">Solicitar Técnico Librix</button>
+        <hr>
+        <button class="btn-login" onclick="solicitacaoTecnicaEquipamentosGerais()">Solicitação Técnica Equipamentos Gerais</button>
+        <hr>
+        <div class="textfield"><input type="text" id="modelo" placeholder="Modelo"></div>
+        <div class="textfield"><input type="text" id="modeloSerEnviado" placeholder="Modelo (S) Envio"></div>
+        <div class="textfield"><input type="text" id="projeto" placeholder="Contrato"></div>
+        <div class="textfield"><input type="text" id="obra" placeholder="Termo"></div>
+        <div class="textfield"><input type="text" id="CodCli" placeholder="Código do Cliente"></div>
+        <div class="textfield"><input type="text" id="lojaCLI" placeholder="LOJA"></div>
+        <div class="textfield"><input type="text" id="sequencia" placeholder="OBSERVAÇÃO"></div>
+        <div class="textfield"><input type="text" id="sku" placeholder="SKU"></div>
+        <button class="btn-login" onclick="solicitacaoDeEquipamento()">Solicitação de Equipamento</button>
+        <hr>
+        <div class="textfield"><input type="text" id="pecaSerEnviado" placeholder="Peça"></div>
+        <button class="btn-login" onclick="solicitacaoDePeca()">Solicitação De Peça</button>
+        <button class="btn-login" onclick="SolicitacaoEstoque()">Solicitação Estoque</button>
+      </div>
+
+      <button class="btn-login" onclick="limparTudo()">Limpar Tudo</button>
+     
+      <br>
+      <a href="https://arklokoffice-my.sharepoint.com/:f:/g/personal/ftp_parceiros_arklokoffice_onmicrosoft_com/EowaVWVNCFRBg7SDWHp7rWgBMfrCeVdigpAamyvchCdklQ?e=GaRMy7" style="color:#f0ffffde;" target="_blank">LINK DA IMAGEM</a><br>
+      <p style="color:#f0ffff94;">Senha: VW*6vsv6T#</p>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+  <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.16/jquery.mask.js"></script>
+  <script>
+    $('#telefoneLoja').mask('(00) 00000-0000');
+    $('#telefoneGerente').mask('(00) 00000-0000');
+  </script>
+</body>
+</html>
+
