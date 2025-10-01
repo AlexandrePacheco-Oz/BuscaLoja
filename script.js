@@ -1,6 +1,6 @@
 let lojas = {};
 
-fetch('lojas.json')
+fetch('./lojas.json')
   .then(res => res.json())
   .then(data => lojas = data)
   .catch(err => alert("Erro ao carregar os dados das lojas."));
@@ -331,6 +331,49 @@ SIAC: ${pdv.siac}`;
   }
 }
 
+
+/* --- Função para abrir ligação --- */
+function abrirLigacao(campoId) {
+  const telefone = document.getElementById(campoId).value.trim();
+  
+  if (!telefone) {
+    alert("Digite um número de telefone primeiro.");
+    return;
+  }
+  
+  // Remove caracteres especiais e espaços, mantendo apenas números
+  const numeroLimpo = telefone.replace(/\D/g, '');
+  
+  // Verifica se tem pelo menos 10 dígitos (formato brasileiro)
+  if (numeroLimpo.length < 10) {
+    alert("Número de telefone inválido. Digite um número válido.");
+    return;
+  }
+  
+  // Formata o número para o padrão brasileiro se necessário
+  let numeroFormatado = numeroLimpo;
+  if (numeroLimpo.length === 11 && numeroLimpo.startsWith('0')) {
+    // Remove o 0 inicial se houver
+    numeroFormatado = numeroLimpo.substring(1);
+  }
+  
+  // Adiciona o código do país se não tiver
+  if (!numeroFormatado.startsWith('55')) {
+    numeroFormatado = '55' + numeroFormatado;
+  }
+  
+  // Abre o link do WhatsApp ou telefone
+  const linkWhatsApp = `https://wa.me/${numeroFormatado}`;
+  const linkTelefone = `tel:+${numeroFormatado}`;
+  
+  // Tenta abrir o WhatsApp primeiro, se não conseguir, abre o telefone
+  const novaJanela = window.open(linkWhatsApp, '_blank');
+  
+  // Se não conseguir abrir o WhatsApp, tenta o telefone
+  if (!novaJanela || novaJanela.closed || typeof novaJanela.closed == 'undefined') {
+    window.location.href = linkTelefone;
+  }
+}
 
 /* --- Função para limpar tudo --- */
 function limparTudo() {
