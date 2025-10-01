@@ -36,8 +36,18 @@
       <!-- Campos extras -->
       <div id="camposExtras" class="hidden">
         <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
-        <div class="textfield"><input type="text" id="telefoneLoja" placeholder="Telefone Loja"></div>
-        <div class="textfield"><input type="text" id="telefoneGerente" placeholder="Telefone Gerente"></div>
+        <div class="textfield">
+          <div class="input-with-button">
+            <input type="text" id="telefoneLoja" placeholder="Telefone Loja">
+            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneLoja')" title="Ligar">📞</button>
+          </div>
+        </div>
+        <div class="textfield">
+          <div class="input-with-button">
+            <input type="text" id="telefoneGerente" placeholder="Telefone Gerente">
+            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneGerente')" title="Ligar">📞</button>
+          </div>
+        </div>
         <div class="textfield"><input type="text" id="patrimonio" placeholder="Número de plaqueta"></div>
         <div class="textfield"><textarea id="problema" placeholder="Problema Encontrado"></textarea></div>
 
