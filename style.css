@@ -91,6 +91,46 @@ body * {
   display: none;
 }
 
+/* Estilos para input com botão interno */
+.input-with-button {
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+.input-with-button input {
+  width: 100%;
+  padding-right: 50px; /* Espaço para o botão */
+}
+
+.phone-button {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-50%);
+  /* background: #e32636; */
+  border: none;
+  border-radius: 6px;
+  width: 35px;
+  height: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  font-size: 16px;
+  color: white;
+  transition: background-color 0.3s ease;
+  z-index: 10;
+}
+
+.phone-button:hover {
+  background: #c41e3a;
+}
+
+.phone-button:active {
+  background: #a0172e;
+}
+
 @media only screen and (max-width: 600px) {
   .card-login {
     padding: 20px;
