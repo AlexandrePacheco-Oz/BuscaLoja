@@ -80,7 +80,7 @@ Para realizar o reparo do equipamento solicitado pela loja, é essencial levar o
 1. Imagem do sistema:
 A imagem necessária encontra-se na última versão enviada pelo cliente, disponível no SharePoint. O caminho para acessá-la é:
 Imagens > Pague Menos > Imagens > Windows Balcão
-Arquivo: PAGUE MENOS - BALCÃO - WIN 11 24H2 - (Att. JUL. 2025.iso)
+Arquivo: PAGUE MENOS - BALCAO - WIN 10 22H2 - (Att. Fev. 2025).mrimg
 2. Ferramentas necessárias:
 Baixar o aplicativo "HirensBoot" ou "Gandalf" para realizar o restore do arquivo “.mrimg” utilizando a ferramenta “Macrium”, que está inclusa nos aplicativos citados.
 • Link para download: https://www.hirensbootcd.org/#google_vignette
@@ -385,4 +385,5 @@ function limparTudo() {
   if (document.getElementById("meuIP")) document.getElementById("meuIP").innerText = "";
   if (document.getElementById("camposExtras")) document.getElementById("camposExtras").classList.add("hidden");
 }
+
 
