@@ -196,9 +196,9 @@
     "cidade": "Salvador",
     "Estado": "Bahia",
     "UF": "BA",
-    "rua": "Avenida Aliomar Baleeiro, 6.565",
-    "bairro": "Nova Brasília",
-    "cep": "41.350-275",
+    "rua": "Rua Mocambo, 301 - Loja A",
+    "bairro": "Trobogy",
+    "cep": "41.745-037",
     "CNPJ": "06.626.253/0906-30",
     "email": "emp906@pmenos.com.br",
     "razaoSocial": "EMPREENDIMENTOS PAGUE MENOS S/A"
@@ -1192,7 +1192,7 @@
     "cidade": "Esperantina",
     "Estado": "Piauí",
     "UF": "PI",
-    "rua": "Avenida Ministro Petrônio Portela, 1415",
+    "rua": "Avenida Ministro Petrônio Portela, 1502",
     "bairro": "Centro",
     "cep": "64.180-000",
     "CNPJ": "06.626.253/1382-69",
@@ -5320,7 +5320,7 @@
     "cidade": "Salvador",
     "Estado": "Bahia",
     "UF": "BA",
-    "rua": "Rua Arthur de Azevêdo Machado, 754",
+    "rua": "Rua Dr. Raimundo Magaldi, 123 - Edif.Extrafarma Lj 02, 03 e 04",
     "bairro": "Costa Azul",
     "cep": "41.760-020",
     "CNPJ": "04.899.316/0438-60",
@@ -6240,4 +6240,5 @@
     "razaoSocial": "EMPREENDIMENTOS PAGUE MENOS S/A"
   }
 }
+
 
