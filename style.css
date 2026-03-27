@@ -1,46 +1,163 @@
-@import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap');
+
+:root {
+  /* Default Dark Theme */
+  --primary: #ff3c3c;
+  --primary-glow: rgba(255, 60, 60, 0.4);
+  --bg-dark: #0f0c18;
+  --glass: rgba(47, 40, 65, 0.6);
+  --glass-border: rgba(255, 255, 255, 0.08);
+  --text-main: #f0ffffde;
+  --text-dim: #f0ffff94;
+  --input-bg: rgba(81, 72, 105, 0.4);
+  --tab-bg: rgba(0, 0, 0, 0.2);
+  --ai-panel-bg: rgba(255, 255, 255, 0.05);
+}
+
+[data-theme="light"] {
+  --bg-dark: #f0f2f5;
+  --glass: rgba(255, 255, 255, 0.85);
+  --glass-border: rgba(0, 0, 0, 0.1);
+  --text-main: #1c1e21;
+  --text-dim: #606770;
+  --input-bg: rgba(0, 0, 0, 0.05);
+  --tab-bg: rgba(0, 0, 0, 0.05);
+  --ai-panel-bg: rgba(0, 0, 0, 0.02);
+}
 
 body {
   margin: 0;
-  font-family: "Noto Sans", sans-serif;
+  font-family: "Outfit", sans-serif;
+  background: var(--bg-dark);
+  color: var(--text-main);
+  overflow-x: hidden;
+  transition: background 0.3s ease, color 0.3s ease;
 }
 
-body * {
-  box-sizing: border-box;
+/* Background animated gradient */
+body::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at 20% 30%, rgba(227, 38, 54, 0.12), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(43, 19, 75, 0.2), transparent 40%);
+  z-index: -1;
+  animation: bgPulse 10s infinite alternate ease-in-out;
 }
+
+[data-theme="light"] body::before {
+  background: radial-gradient(circle at 20% 30%, rgba(227, 38, 54, 0.05), transparent 40%),
+              radial-gradient(circle at 80% 70%, rgba(100, 100, 255, 0.05), transparent 40%);
+}
+
+@keyframes bgPulse {
+  0% { transform: scale(1); opacity: 0.8; }
+  100% { transform: scale(1.1); opacity: 1; }
+}
+
+body * { box-sizing: border-box; }
 
 .main-login {
   width: 100vw;
   min-height: 100vh;
-  background: #201b2c;
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 40px 0;
+  padding: 40px 20px;
 }
-.left-animacao{
-  width: 15vw;
- display: block;
- 
+
+.left-animacao {
+  width: 120px;
+  height: auto;
+  margin-bottom: 20px;
+  filter: drop-shadow(0 0 10px var(--primary-glow));
 }
 
 .card-login {
-  width: 90%;
-  max-width: 600px;
-  background: #2f2841;
-  border-radius: 20px;
-  padding: 30px;
-  box-shadow: 0px 10px 40px #00000056;
+  width: 100%;
+  max-width: 800px;
+  background: var(--glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--glass-border);
+  border-radius: 24px;
+  padding: 40px;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.2);
   display: flex;
   flex-direction: column;
   align-items: center;
+  position: relative;
+  transition: background 0.3s ease, border 0.3s ease;
 }
 
 .card-login h1 {
-  color: #e32636;
+  color: var(--primary);
   font-weight: 800;
-  margin-bottom: 20px;
+  margin-bottom: 30px;
   text-align: center;
+  letter-spacing: -1px;
+}
+
+/* Theme Toggle Button */
+.theme-toggle {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  background: var(--tab-bg);
+  border: 1px solid var(--glass-border);
+  color: var(--text-main);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 20px;
+  transition: all 0.3s ease;
+}
+
+.theme-toggle:hover {
+  transform: rotate(30deg) scale(1.1);
+  background: var(--primary);
+  color: white;
+}
+
+/* Tabs */
+.tabs {
+  display: flex;
+  width: 100%;
+  background: var(--tab-bg);
+  border-radius: 12px;
+  margin-bottom: 25px;
+  padding: 5px;
+  transition: background 0.3s ease;
+}
+
+.tab-btn {
+  flex: 1;
+  padding: 12px;
+  border: none;
+  background: transparent;
+  color: var(--text-dim);
+  font-family: inherit;
+  font-weight: 600;
+  cursor: pointer;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.tab-btn.active {
+  background: var(--primary);
+  color: white;
+  box-shadow: 0 4px 15px var(--primary-glow);
+}
+
+.tab-content {
+  width: 100%;
 }
 
 .textfield {
@@ -48,92 +165,171 @@ body * {
   margin-bottom: 15px;
 }
 
+.textfield label {
+  display: block;
+  margin-bottom: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text-dim);
+}
+
 .textfield input,
 .textfield textarea {
   width: 100%;
-  border: none;
-  border-radius: 10px;
+  border: 1px solid var(--glass-border);
+  border-radius: 12px;
   padding: 15px;
-  background: #514869;
-  color: #f0ffffde;
-  font-size: 14px;
-  box-shadow: 0px 10px 40px #00000056;
+  background: var(--input-bg);
+  color: var(--text-main);
+  font-size: 15px;
   outline: none;
-  resize: none;
+  transition: all 0.3s ease;
 }
 
-.textfield textarea {
-  min-height: 60px;
-}
-
-.textfield input::placeholder,
-.textfield textarea::placeholder {
-  color: #f0ffff94;
+.textfield input:focus,
+.textfield textarea:focus {
+  border-color: var(--primary);
+  background: rgba(255, 60, 60, 0.05);
+  box-shadow: 0 0 15px rgba(255, 60, 60, 0.1);
 }
 
 .btn-login {
   width: 100%;
-  padding: 16px;
+  padding: 18px;
   margin: 10px 0;
-  border-radius: 8px;
-  outline: none;
+  border-radius: 12px;
   border: none;
   text-transform: uppercase;
   font-weight: 800;
   letter-spacing: 1px;
-  color: #2b134b;
-  background: #ff0000;
+  color: white;
+  background: linear-gradient(135deg, var(--primary), #b31414);
   cursor: pointer;
-  box-shadow: 0px 10px 40px -12px #e32636;
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
+  box-shadow: 0 10px 20px -10px var(--primary-glow);
 }
 
-.hidden {
+.btn-login:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 15px 30px -10px var(--primary-glow);
+  filter: brightness(1.1);
+}
+
+.btn-login:active { transform: translateY(0); }
+
+#meuIP {
+  width: 100%;
+  background: var(--tab-bg);
+  padding: 15px;
+  border-radius: 12px;
+  margin-top: 15px;
+  border: 1px solid var(--glass-border);
+}
+
+/* AI Panel */
+.ai-panel {
+  width: 100%;
+  background: var(--ai-panel-bg);
+  border-radius: 16px;
+  padding: 20px;
+  margin-bottom: 25px;
+  border-left: 4px solid #7000ff;
+  display: flex;
+  align-items: flex-start;
+  gap: 15px;
+}
+
+.ai-icon { font-size: 24px; }
+
+.ai-suggestion {
+  font-size: 14px;
+  color: var(--text-main);
+}
+
+.ai-suggestion button {
+  background: #7000ff;
+  color: white;
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  font-size: 11px;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+/* Toast Notification */
+#toast {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: var(--primary);
+  color: white;
+  padding: 16px 24px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.5);
   display: none;
+  z-index: 1000;
+  animation: slideIn 0.3s ease-out;
 }
 
-/* Estilos para input com botão interno */
+@keyframes slideIn {
+  from { transform: translateX(100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.hidden { display: none; }
+
+@media only screen and (max-width: 600px) {
+  .card-login { padding: 25px; }
+  .tabs { flex-direction: column; }
+  .theme-toggle { top: 15px; right: 15px; }
+}
+
+/* --- Input with Internal Button --- */
 .input-with-button {
   position: relative;
   display: flex;
   align-items: center;
+  width: 100%;
 }
 
 .input-with-button input {
-  width: 100%;
-  padding-right: 50px; /* Espaço para o botão */
+  padding-right: 45px !important;
 }
 
 .phone-button {
   position: absolute;
-  right: 5px;
-  top: 50%;
-  transform: translateY(-50%);
-  /* background: #e32636; */
-  border: none;
-  border-radius: 6px;
-  width: 35px;
-  height: 35px;
+  right: 8px;
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid var(--glass-border);
+  border-radius: 10px;
+  width: 32px;
+  height: 32px;
   display: flex;
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 16px;
-  color: white;
-  transition: background-color 0.3s ease;
+  font-size: 14px;
+  color: var(--text-main);
+  transition: all 0.3s cubic-bezier(0.23, 1, 0.32, 1);
   z-index: 10;
+  backdrop-filter: blur(5px);
+  padding: 0;
+  line-height: 1;
+}
+
+[data-theme="light"] .phone-button {
+  background: rgba(0, 0, 0, 0.05);
 }
 
 .phone-button:hover {
-  background: #c41e3a;
+  background: var(--primary);
+  border-color: var(--primary);
+  transform: scale(1.1);
+  color: white;
+  box-shadow: 0 0 15px var(--primary-glow);
 }
 
 .phone-button:active {
-  background: #a0172e;
-}
-
-@media only screen and (max-width: 600px) {
-  .card-login {
-    padding: 20px;
-    width: 95%;
-  }
+  transform: scale(0.95);
 }
