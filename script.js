@@ -27,9 +27,11 @@ function copiarInformacoes() {
   const telGerente = document.getElementById("telefoneGerente").value.trim();
   const patrimonio = document.getElementById("patrimonio").value.trim();
   const problema = document.getElementById("problema").value.trim();
-  
+  const cervello = document.getElementById("cervello").value.trim();
+
   const texto = `LOJA - ${id}
 Chamado Externo: ${chamado}
+Chamado Arklok: ${cervello}
 Telefone Loja: ${telLoja}
 Telefone Gerente: ${telGerente}
 E-mail: ${dados.email}
@@ -91,7 +93,7 @@ Antes de iniciar qualquer procedimento, consulte a loja para verificar se é nec
   navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado Técnico copiado!"));
 }
 
-function copiarChamadoTecnicoLibrix(){
+function copiarChamadoTecnicoLibrix() {
   const id = document.getElementById("searchInput").value.trim();
   const dados = lojas[id];
   if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
@@ -139,7 +141,7 @@ Mouse e outros dispositivos não listados acima não são necessários para o fu
   navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado Técnico copiado!"));
 }
 
-function solicitacaoTecnicaEquipamentosGerais(){
+function solicitacaoTecnicaEquipamentosGerais() {
   const id = document.getElementById("searchInput").value.trim();
   const dados = lojas[id];
   if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
@@ -165,7 +167,7 @@ UF: ${dados.UF || "UF não informada"}`;
   navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado Técnico copiado!"));
 }
 
-function solicitacaoDeEquipamento(){
+function solicitacaoDeEquipamento() {
   const id = document.getElementById("searchInput").value.trim();
   const dados = lojas[id];
   if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
@@ -178,8 +180,8 @@ function solicitacaoDeEquipamento(){
   const modeloS = document.getElementById("modeloSerEnviado").value.trim();
   const lojaCLI = document.getElementById("lojaCLI").value.trim();
   const CodCli = document.getElementById("CodCli").value.trim();
-  const sequencia = document.getElementById("sequencia").value.trim(); 
-  const sku = document.getElementById("sku").value.trim(); 
+  const sequencia = document.getElementById("sequencia").value.trim();
+  const sku = document.getElementById("sku").value.trim();
 
   const textoTecnico = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
 Número de plaqueta Com Problema: ${patrimonio}
@@ -211,7 +213,7 @@ CHAMADO EXTERNO (SE HOUVER): ${chamado}`;
   navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado Técnico copiado!"));
 }
 
-function SolicitacaoEstoque(){
+function SolicitacaoEstoque() {
   const id = document.getElementById("searchInput").value.trim();
   const dados = lojas[id];
   if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
@@ -221,8 +223,37 @@ Por favor aguarde pelas informações de envio e previsão de entrega.`;
 
   navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado Técnico copiado!"));
 }
+function SolicitacaoComercial() {
+  const id = document.getElementById("searchInput").value.trim();
+  const dados = lojas[id];
+  if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
 
-function solicitacaoDePeca(){
+  const textoTecnico = `Olá!
+Seu chamado encontra-se atualmente no setor Comercial para tratativa.
+Em breve você receberá um retorno.
+
+Quaisquer dúvidas estou à disposição,
+Atenciosamente Suporte Arklok.`;
+
+  navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado copiado!"));
+}
+
+function SolicitacaoTranspor() {
+  const id = document.getElementById("searchInput").value.trim();
+  const dados = lojas[id];
+  if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
+
+  const textoTecnico = `Olá!
+O chamado já está com a transportadora  para tratativa.
+Assim que houver retorno, avisaremos.
+ 
+Quaisquer dúvidas estou à disposição,
+Atenciosamente Suporte Arklok.`;
+
+  navigator.clipboard.writeText(textoTecnico).then(() => alert("Chamado copiado!"));
+}
+
+function solicitacaoDePeca() {
   const id = document.getElementById("searchInput").value.trim();
   const dados = lojas[id];
   if (!dados) { alert("Você precisa buscar uma loja primeiro."); return; }
@@ -233,9 +264,9 @@ function solicitacaoDePeca(){
   const obra = document.getElementById("obra").value.trim();
   const modelo1 = document.getElementById("modelo").value.trim();
   const lojaCLI = document.getElementById("lojaCLI").value.trim();
-  const sequencia = document.getElementById("sequencia").value.trim(); 
+  const sequencia = document.getElementById("sequencia").value.trim();
   const CodCli = document.getElementById("CodCli").value.trim();
-  const sku = document.getElementById("sku").value.trim(); 
+  const sku = document.getElementById("sku").value.trim();
   const peca = document.getElementById("pecaSerEnviado").value.trim();
 
   const textoTecnico = `[ X ] NECESSÁRIO TROCA DE PEÇA
@@ -278,13 +309,13 @@ function mostrarCampoPDV() {
 
   if (pdvInput.value.trim() === "") btnConfirmar.classList.add("hidden");
 
-  pdvInput.addEventListener("input", function() {
+  pdvInput.addEventListener("input", function () {
     if (pdvInput.value.trim() !== "") btnConfirmar.classList.remove("hidden");
     else btnConfirmar.classList.add("hidden");
   });
 }
 
-async function buscarIP() { 
+async function buscarIP() {
   const lojaId = document.getElementById("searchInput").value.trim();
   const pdvNumero = document.getElementById("pdvInput").value.trim();
   const btnConfirmar = document.getElementById("btnConfirmarPDV");
@@ -293,7 +324,7 @@ async function buscarIP() {
   if (!pdvNumero) { alert("Digite o número do PDV."); return; }
 
   try {
-    const response = await fetch("./ip.json"); 
+    const response = await fetch("./ip.json");
     const lojas = await response.json(); // JSON é um array agora
 
     const loja = lojas.find(l => l.idLoja === lojaId);
@@ -335,40 +366,40 @@ SIAC: ${pdv.siac}`;
 /* --- Função para abrir ligação --- */
 function abrirLigacao(campoId) {
   const telefone = document.getElementById(campoId).value.trim();
-  
+
   if (!telefone) {
     alert("Digite um número de telefone primeiro.");
     return;
   }
-  
+
   // Remove caracteres especiais e espaços, mantendo apenas números
   const numeroLimpo = telefone.replace(/\D/g, '');
-  
+
   // Verifica se tem pelo menos 10 dígitos (formato brasileiro)
   if (numeroLimpo.length < 10) {
     alert("Número de telefone inválido. Digite um número válido.");
     return;
   }
-  
+
   // Formata o número para o padrão brasileiro se necessário
   let numeroFormatado = numeroLimpo;
   if (numeroLimpo.length === 11 && numeroLimpo.startsWith('0')) {
     // Remove o 0 inicial se houver
     numeroFormatado = numeroLimpo.substring(1);
   }
-  
+
   // Adiciona o código do país se não tiver
   if (!numeroFormatado.startsWith('55')) {
     numeroFormatado = '55' + numeroFormatado;
   }
-  
+
   // Abre o link do WhatsApp ou telefone
   const linkWhatsApp = `https://wa.me/${numeroFormatado}`;
   const linkTelefone = `tel:+${numeroFormatado}`;
-  
+
   // Tenta abrir o WhatsApp primeiro, se não conseguir, abre o telefone
   const novaJanela = window.open(linkWhatsApp, '_blank');
-  
+
   // Se não conseguir abrir o WhatsApp, tenta o telefone
   if (!novaJanela || novaJanela.closed || typeof novaJanela.closed == 'undefined') {
     window.location.href = linkTelefone;
@@ -377,7 +408,7 @@ function abrirLigacao(campoId) {
 
 /* --- Função para limpar tudo --- */
 function limparTudo() {
-  const campos = ["searchInput","chamado","telefoneLoja","telefoneGerente","patrimonio","problema","cervello","procedimentosRemotos","modelo","modeloSerEnviado","projeto","obra","lojaCLI","sequencia","sku","pecaSerEnviado"];
+  const campos = ["searchInput", "chamado", "telefoneLoja", "telefoneGerente", "patrimonio", "problema", "cervello", "procedimentosRemotos", "modelo", "modeloSerEnviado", "projeto", "obra", "lojaCLI", "sequencia", "sku", "pecaSerEnviado"];
   campos.forEach(id => document.getElementById(id).value = "");
 
   if (document.getElementById("pdvInput")) document.getElementById("pdvInput").value = "";
