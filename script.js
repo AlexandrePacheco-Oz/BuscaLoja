@@ -174,13 +174,11 @@ function solicitacaoDeEquipamento() {
 
   const chamado = document.getElementById("chamado").value.trim();
   const patrimonio = document.getElementById("patrimonio").value.trim();
-  const projeto = document.getElementById("projeto").value.trim();
+
   const obra = document.getElementById("obra").value.trim();
   const modelo1 = document.getElementById("modelo").value.trim();
   const modeloS = document.getElementById("modeloSerEnviado").value.trim();
-  const lojaCLI = document.getElementById("lojaCLI").value.trim();
-  const CodCli = document.getElementById("CodCli").value.trim();
-  const sequencia = document.getElementById("sequencia").value.trim();
+
   const sku = document.getElementById("sku").value.trim();
 
   const textoTecnico = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
