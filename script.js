@@ -123,17 +123,17 @@ async function copyToClipboard(texto, message = "Copiado para o clipboard!") {
 }
 
 function getBaseInfo(id, dados) {
-  return `*LOJA - ${id}*
-*Chamado Externo:* ${document.getElementById("chamado").value}
-*Chamado Arklok:* ${document.getElementById("cervello").value}
-*Telefone Loja:* ${document.getElementById("telefoneLoja").value}
-*Telefone Gerente:* ${document.getElementById("telefoneGerente").value}
-*E-mail:* ${dados.email}
-*Endereço:* ${dados.rua}
-*Bairro:* ${dados.bairro}
-*CEP:* ${dados.cep}
-*Cidade:* ${dados.cidade} / ${dados.UF}
-*Plaqueta:* ${document.getElementById("patrimonio").value}`;
+  return `LOJA - ${id}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
+Telefone Loja: ${document.getElementById("telefoneLoja").value}
+Telefone Gerente: ${document.getElementById("telefoneGerente").value}
+E-mail: ${dados.email}
+Endereço: ${dados.rua}
+Bairro: ${dados.bairro}
+CEP: ${dados.cep}
+Cidade: ${dados.cidade} / ${dados.UF}
+Plaqueta: ${document.getElementById("patrimonio").value}`;
 }
 
 function copiarInformacoes() {
@@ -142,7 +142,7 @@ function copiarInformacoes() {
   if (!dados) return;
 
   const texto = `${getBaseInfo(id, dados)}
-*Problema Encontrado:* ${document.getElementById("problema").value}`;
+Problema Encontrado: ${document.getElementById("problema").value}`;
   copyToClipboard(texto, "Escopo Cervello Copiado!");
 }
 
@@ -160,19 +160,19 @@ function copiarChamadoTecnico() {
   const dados = lojas[id];
   if (!dados) return;
 
-  const texto = `*Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}*
+  const texto = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos Loja - ${id}
-*Chamado Externo:* ${document.getElementById("chamado").value}
-*Chamado Arklok:* ${document.getElementById("cervello").value}
-*Plaqueta:* ${document.getElementById("patrimonio").value}
-*Descrição Do Chamado:* ${document.getElementById("problema").value}
-*Procedimentos executados remotamente:* ${document.getElementById("procedimentosRemotos").value}
-*Endereço:* ${dados.rua}
-*Bairro:* ${dados.bairro}
-*CEP:* ${dados.cep}
-*Cidade:* ${dados.cidade}
-*UF:* ${dados.UF || ""}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
+Descrição Do Chamado: ${document.getElementById("problema").value}
+Procedimentos executados remotamente: ${document.getElementById("procedimentosRemotos").value}
+Endereço: ${dados.rua}
+Bairro: ${dados.bairro}
+CEP: ${dados.cep}
+Cidade: ${dados.cidade}
+UF: ${dados.UF || ""}
 
 Itens e Instruções para Manutenção no Cliente:
 Para realizar o reparo do equipamento solicitado pela loja, é essencial levar os seguintes itens:
@@ -195,16 +195,16 @@ function copiarChamadoTecnicoLibrix() {
   const dados = lojas[id];
   if (!dados) return;
 
-  const texto = `*Chamado Técnico (Librix) | Loja ${id} – ${dados.cidade}*
+  const texto = `Chamado Técnico (Librix) | Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
-*Chamado Externo:* ${document.getElementById("chamado").value}
-*Chamado Arklok:* ${document.getElementById("cervello").value}
-*Plaqueta:* ${document.getElementById("patrimonio").value}
-*Descrição:* ${document.getElementById("problema").value}
-*Procedimentos:* ${document.getElementById("procedimentosRemotos").value}
-*Endereço:* ${dados.rua}
-*UF:* ${dados.UF || ""}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
+Descrição: ${document.getElementById("problema").value}
+Procedimentos: ${document.getElementById("procedimentosRemotos").value}
+Endereço: ${dados.rua}
+UF: ${dados.UF || ""}
 
 Instruções para Realização do Reparo do Equipamento Solicitado pela Loja:
 Para a execução do reparo, siga as orientações abaixo. Os arquivos necessários estão disponíveis nas últimas versões enviadas pelo cliente e podem ser acessados no SharePoint. O caminho para acessá-los é:
@@ -237,12 +237,12 @@ function solicitacaoTecnicaEquipamentosGerais() {
   const dados = lojas[id];
   if (!dados) return;
 
-  const texto = `*Chamado Técnico Geral | Loja ${id}*
-*Chamado Externo:* ${document.getElementById("chamado").value}
-*Chamado Arklok:* ${document.getElementById("cervello").value}
-*Plaqueta:* ${document.getElementById("patrimonio").value}
-*Descrição:* ${document.getElementById("problema").value}
-*Endereço:* ${dados.rua}, ${dados.cidade}`;
+  const texto = `Chamado Técnico Geral | Loja ${id}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
+Descrição: ${document.getElementById("problema").value}
+Endereço: ${dados.rua}, ${dados.cidade}`;
   copyToClipboard(texto);
 }
 
@@ -251,15 +251,15 @@ function solicitacaoDeEquipamento() {
   const dados = lojas[id];
   if (!dados) return;
 
-  const texto = `* [ X ] NECESSÁRIO TROCA DE EQUIPAMENTO *
-*Plaqueta:* ${document.getElementById("patrimonio").value}
-*Modelo:* ${document.getElementById("modelo").value}
-*Modelo Envio:* ${document.getElementById("modeloSerEnviado").value}
-*SKU:* ${document.getElementById("sku").value}
-*Termo:* ${document.getElementById("obra").value}
-*Razão Social:* ${dados.razaoSocial}
-*CNPJ:* ${dados.CNPJ}
-*Endereço:* ${dados.rua}, ${dados.bairro}, ${dados.cep}`;
+  const texto = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
+Plaqueta: ${document.getElementById("patrimonio").value}
+Modelo: ${document.getElementById("modelo").value}
+Modelo Envio: ${document.getElementById("modeloSerEnviado").value}
+SKU: ${document.getElementById("sku").value}
+Termo: ${document.getElementById("obra").value}
+Razão Social: ${dados.razaoSocial}
+CNPJ: ${dados.CNPJ}
+Endereço: ${dados.rua}, ${dados.bairro}, ${dados.cep}`;
   copyToClipboard(texto, "Solicitação de Equipamento Copiada!");
 }
 
@@ -268,12 +268,12 @@ function solicitacaoDePeca() {
   const dados = lojas[id];
   if (!dados) return;
 
-  const texto = `* [ X ] NECESSÁRIO TROCA DE PEÇA *
-*Plaqueta:* ${document.getElementById("patrimonio").value}
-*Peça:* ${document.getElementById("pecaSerEnviado").value}
-*Modelo:* ${document.getElementById("modelo").value}
-*SKU:* ${document.getElementById("sku").value}
-*Endereço:* ${dados.rua}`;
+  const texto = `[ X ] NECESSÁRIO TROCA DE PEÇA
+Plaqueta: ${document.getElementById("patrimonio").value}
+Peça: ${document.getElementById("pecaSerEnviado").value}
+Modelo: ${document.getElementById("modelo").value}
+SKU: ${document.getElementById("sku").value}
+Endereço: ${dados.rua}`;
   copyToClipboard(texto, "Solicitação de Peça Copiada!");
 }
 
