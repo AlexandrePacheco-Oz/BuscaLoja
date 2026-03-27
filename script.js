@@ -163,7 +163,8 @@ function copiarChamadoTecnico() {
   const texto = `Chamado Técnico | Pague Menos/Extrafarma Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos Loja - ${id}
-Chamado: ${document.getElementById("chamado").value}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
 Descrição Do Chamado: ${document.getElementById("problema").value}
 Procedimentos executados remotamente: ${document.getElementById("procedimentosRemotos").value}
 Endereço: ${dados.rua}
@@ -186,7 +187,8 @@ function copiarChamadoTecnicoLibrix() {
   const texto = `Chamado Técnico (Librix) | Loja ${id} – ${dados.cidade}
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
-Chamado: ${document.getElementById("chamado").value}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
 Descrição: ${document.getElementById("problema").value}
 Procedimentos: ${document.getElementById("procedimentosRemotos").value}
 Endereço: ${dados.rua}
@@ -202,7 +204,8 @@ function solicitacaoTecnicaEquipamentosGerais() {
   if (!dados) return;
 
   const texto = `Chamado Técnico Geral | Loja ${id}
-Chamado: ${document.getElementById("chamado").value}
+Chamado Externo: ${document.getElementById("chamado").value}
+Chamado Arklok: ${document.getElementById("cervello").value}
 Descrição: ${document.getElementById("problema").value}
 Endereço: ${dados.rua}, ${dados.cidade}`;
   copyToClipboard(texto);
@@ -254,7 +257,13 @@ Atenciosamente, Suporte Arklok.`;
 }
 
 function SolicitacaoTranspor() {
-  copyToClipboard("O chamado já está com a transportadora para tratativa. Assim que houver retorno, avisaremos.");
+  const texto = `Olá!
+O chamado já está com a transportadora  para tratativa.
+Assim que houver retorno, avisaremos.
+ 
+Quaisquer dúvidas estou à disposição,
+Atenciosamente Suporte Arklok.`;
+  copyToClipboard(texto);
 }
 
 async function buscarIP() {
