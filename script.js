@@ -165,6 +165,7 @@ Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos Loja - ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
 Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição Do Chamado: ${document.getElementById("problema").value}
 Procedimentos executados remotamente: ${document.getElementById("procedimentosRemotos").value}
 Endereço: ${dados.rua}
@@ -173,9 +174,19 @@ CEP: ${dados.cep}
 Cidade: ${dados.cidade}
 UF: ${dados.UF || ""}
 
-Instruções Adicionais:
-1. Imagem do sistema (Windows Balcão)
-2. Ferramentas Macrium/Hirens.`;
+Itens e Instruções para Manutenção no Cliente:
+Para realizar o reparo do equipamento solicitado pela loja, é essencial levar os seguintes itens:
+1. Imagem do sistema:
+A imagem necessária encontra-se na última versão enviada pelo cliente, disponível no SharePoint. O caminho para acessá-la é:
+Imagens > Pague Menos > Imagens > Windows Balcão
+Arquivo: PAGUE MENOS - BALCAO - WIN 10 22H2 - (Att. Fev. 2025).mrimg
+2. Ferramentas necessárias:
+Baixar o aplicativo "HirensBoot" ou "Gandalf" para realizar o restore do arquivo “.mrimg” utilizando a ferramenta “Macrium”, que está inclusa nos aplicativos citados.
+• Link para download: https://www.hirensbootcd.org/#google_vignette
+Atenção: Monte o Pendrive para o boot antes de se dirigir ao estabelecimento, para evitar contratempos com a montagem do dispositivo no local.
+3. Backup de dados:
+Antes de iniciar qualquer procedimento, consulte a loja para verificar se é necessário realizar o backup de pastas e arquivos. Como as portas USB dos equipamentos são bloqueadas pela PGM, utilize uma das ferramentas “Hirens” ou “Gandalf” para a realização do backup.`;
+
   copyToClipboard(texto, "Chamado Windows Copiado!");
 }
 
@@ -189,12 +200,35 @@ Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
 Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição: ${document.getElementById("problema").value}
 Procedimentos: ${document.getElementById("procedimentosRemotos").value}
 Endereço: ${dados.rua}
 UF: ${dados.UF || ""}
 
-Importante: Utilizar imagem Librix-Embarcado-6.1.7-V8.0.iso`;
+Instruções para Realização do Reparo do Equipamento Solicitado pela Loja:
+Para a execução do reparo, siga as orientações abaixo. Os arquivos necessários estão disponíveis nas últimas versões enviadas pelo cliente e podem ser acessados no SharePoint. O caminho para acessá-los é:
+Imagens > Pague Menos > Imagens>Librix_Pdv
+Arquivos imprescindíveis para a montagem do Pendrive bootável:
+•	Imagem: Librix-Embarcado-6.1.7-V8.0.iso
+•	RPMs (install_rpm):
+Para os demais estados, faça o download dos arquivos da pasta correspondente: 
+Para o estado do Ceará, baixe os arquivos da pasta indicada:
+ 
+•	Arqsinc:
+Para estabelecimentos Extra Farma, faça o download dos arquivos da pasta específica:
+ 
+Para estabelecimentos Pague Menos, baixe os arquivos da pasta pertinente: 
+Importante:
+No momento da formatação, os únicos dispositivos que devem permanecer conectados aos PDVs são os seguintes:
+1.Impressora;
+2.MFE (para lojas no Ceará);
+3.SAT (para lojas em São Paulo);
+4.Teclado;
+5.Pinpad;
+6.Leitor de código de barras.
+Observação:
+Mouse e outros dispositivos não listados acima não são necessários para o funcionamento do PDV e podem causar falhas de comunicação com os dispositivos essenciais para a operação correta do sistema.`;
   copyToClipboard(texto, "Chamado Librix Copiado!");
 }
 
@@ -206,6 +240,7 @@ function solicitacaoTecnicaEquipamentosGerais() {
   const texto = `Chamado Técnico Geral | Loja ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
 Chamado Arklok: ${document.getElementById("cervello").value}
+Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição: ${document.getElementById("problema").value}
 Endereço: ${dados.rua}, ${dados.cidade}`;
   copyToClipboard(texto);
@@ -243,13 +278,19 @@ Endereço: ${dados.rua}`;
 }
 
 function SolicitacaoEstoque() {
-  copyToClipboard('Solicitado ao Estoque Arklok o envio de um(a) novo(a). Por favor aguarde pelas informações de envio.');
+  const texto = `Solicitado ao Estoque Arklok o envio de um(a) novo(a).
+Plaqueta: ${document.getElementById("patrimonio").value}
+
+Por favor aguarde pelas informações de envio.`;
+  copyToClipboard(texto);
 }
 
 function SolicitacaoComercial() {
   const texto = `Olá!
 Seu chamado encontra-se atualmente no setor Comercial para tratativa.
 Em breve você receberá um retorno. Assim que houver retorno, avisaremos.
+
+Plaqueta: ${document.getElementById("patrimonio").value}
 
 Quaisquer dúvidas estou à disposição.
 Atenciosamente, Suporte Arklok.`;
@@ -260,6 +301,8 @@ function SolicitacaoTranspor() {
   const texto = `Olá!
 O chamado já está com a transportadora  para tratativa.
 Assim que houver retorno, avisaremos.
+
+Plaqueta: ${document.getElementById("patrimonio").value}
  
 Quaisquer dúvidas estou à disposição,
 Atenciosamente Suporte Arklok.`;
