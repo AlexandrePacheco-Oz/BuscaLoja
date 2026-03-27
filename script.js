@@ -240,11 +240,17 @@ Endereço: ${dados.rua}`;
 }
 
 function SolicitacaoEstoque() {
-  copyToClipboard("Solicitado ao Estoque Arklok o envio de um(a) novo(a). Por favor aguarde pelas informações de envio.");
+  copyToClipboard('Solicitado ao Estoque Arklok o envio de um(a) novo(a). Por favor aguarde pelas informações de envio.');
 }
 
 function SolicitacaoComercial() {
-  copyToClipboard("Seu chamado encontra-se atualmente no setor Comercial para tratativa. Em breve você receberá um retorno.");
+  const texto = `Olá!
+Seu chamado encontra-se atualmente no setor Comercial para tratativa.
+Em breve você receberá um retorno. Assim que houver retorno, avisaremos.
+
+Quaisquer dúvidas estou à disposição.
+Atenciosamente, Suporte Arklok.`;
+  copyToClipboard(texto);
 }
 
 function SolicitacaoTranspor() {
