@@ -252,14 +252,31 @@ function solicitacaoDeEquipamento() {
   if (!dados) return;
 
   const texto = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
-Plaqueta: ${document.getElementById("patrimonio").value}
+Número de plaqueta Com Problema: ${document.getElementById("patrimonio").value}
 Modelo: ${document.getElementById("modelo").value}
-Modelo Envio: ${document.getElementById("modeloSerEnviado").value}
-SKU: ${document.getElementById("sku").value}
+Modelo (S) Envio: ${document.getElementById("modeloSerEnviado").value}
+
+Contrato: 202300198
 Termo: ${document.getElementById("obra").value}
+Código do cliente: 000678
+LOJA: ${id}
+SKU: ${document.getElementById("sku").value}
+Imagem: [ ] SIM  [ ] NÃO [ ] N/A
+Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
+Base: [ ] ITAPEVI [ ] BARRA FUNDA
+Solicitante: ${id}
 Razão Social: ${dados.razaoSocial}
 CNPJ: ${dados.CNPJ}
-Endereço: ${dados.rua}, ${dados.bairro}, ${dados.cep}`;
+Endereço: ${dados.rua}
+Bairro: ${dados.bairro}
+Cidade: ${dados.cidade}
+CEP: ${dados.cep}
+
+**INCLUIR INFORMAÇÕES NF**
+SOLICITANTE: ${id}
+USUÁRIO FINAL: ${id}
+CHAMADO EXTERNO (SE HOUVER): ${document.getElementById("chamado").value}`;
+
   copyToClipboard(texto, "Solicitação de Equipamento Copiada!");
 }
 
