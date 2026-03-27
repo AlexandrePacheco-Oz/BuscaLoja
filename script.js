@@ -188,11 +188,10 @@ Número de plaqueta Com Problema: ${patrimonio}
 Modelo: ${modelo1}
 Modelo (S) Envio: ${modeloS}
 
-Contrato: ${projeto}
+Contrato: 202300198
 Termo: ${obra}
-Código do cliente: ${CodCli}
-LOJA: ${lojaCLI}
-OBSERVAÇÃO: ${sequencia}
+Código do cliente: 000678
+LOJA: 0001
 SKU: ${sku}
 Imagem: [ ] SIM  [ ] NÃO [ ] N/A
 Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
@@ -274,11 +273,10 @@ Número de plaqueta: ${patrimonio}
 Modelo: ${modelo1}
 Peça: ${peca}
 
-Contrato: ${projeto}
+Contrato: 202300198
 Termo: ${obra}
-Código do cliente: ${CodCli}
-LOJA: ${lojaCLI}
-OBSERVAÇÃO: ${sequencia}
+Código do cliente: 000678
+LOJA: 0001
 SKU: ${sku}
 Imagem: [ ] SIM  [ ] NÃO [ ] N/A
 Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
