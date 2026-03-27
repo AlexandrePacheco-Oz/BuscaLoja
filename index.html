@@ -4,94 +4,133 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Busca de Loja</title>
+  <title>BuscaLoja | Arklok</title>
   <link rel="stylesheet" href="style.css">
-
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;800&display=swap" rel="stylesheet">
+  <script>
+    if (sessionStorage.getItem("autenticado") !== "true") {
+      window.location.href = "index.html";
+    }
+  </script>
 </head>
 
 <body>
 
   <div class="main-login">
     <div class="card-login">
+      <!-- Theme Toggle -->
+      <button class="theme-toggle" id="themeToggle" title="Alternar Tema" onclick="toggleTheme()">🌙</button>
+
       <img src="./Login/innovation-animate.svg" class="left-animacao" alt="gato animação">
-      <h1>Buscar Loja</h1>
+      <h1>BuscaLoja</h1>
+
+      <!-- AI Assistant Panel -->
+      <div id="aiPanel" class="ai-panel hidden">
+        <div class="ai-icon">✨</div>
+        <div class="ai-suggestion">
+          <p id="aiMessage">Parece que você está relatando um problema de equipamento. Posso ajudar a preencher o
+            formulário.</p>
+          <button onclick="aiApplySuggestions()">Aplicar Sugestões</button>
+        </div>
+      </div>
 
       <!-- Buscar loja -->
       <div class="textfield">
-        <input type="text" id="searchInput" placeholder="Ex: 7276">
+        <label for="searchInput">ID da Loja</label>
+        <input type="text" id="searchInput" placeholder="Ex: 7276" autocomplete="off">
       </div>
-      <button class="btn-login" onclick="buscarLoja()">Buscar</button>
+      <button class="btn-login" onclick="buscarLoja()">Acessar Loja</button>
 
-      <!-- Buscar IP -->
-      <button class="btn-login" onclick="mostrarCampoPDV()">Buscar IP</button>
-      <div class="textfield">
-        <div id="campoPDV" class="hidden" style="margin-top:10px;">
-          <input type="text" id="pdvInput" placeholder="Digite o número do PDV">
-          <button id="btnConfirmarPDV" class="btn-login hidden" onclick="buscarIP()">Confirmar</button>
+      <div id="camposExtras" class="hidden" style="width: 100%;">
+
+        <!-- Tabs -->
+        <div class="tabs">
+          <button class="tab-btn active" onclick="showTab('tab-info')">Informações</button>
+          <button class="tab-btn" onclick="showTab('tab-tecnico')">Técnico</button>
+          <button class="tab-btn" onclick="showTab('tab-equip')">Equipamento</button>
+          <button class="tab-btn" onclick="showTab('tab-scripts')">Scripts</button>
+          <button class="tab-btn" onclick="showTab('tab-ip')">IP / PDV</button>
         </div>
-      </div>
 
-      <!-- Aqui vai aparecer o IP buscado -->
-      <div id="meuIP" style="margin-top:10px; color:#fff;"></div>
+        <!-- Tab: Informações -->
+        <div id="tab-info" class="tab-content">
 
-      <!-- Campos extras -->
-      <div id="camposExtras" class="hidden">
-        <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
-        <div class="textfield"><input type="text" id="cervello" placeholder="Chamado Cervello"></div>
-        <div class="textfield">
-          <div class="input-with-button">
-            <input type="text" id="telefoneLoja" placeholder="Telefone Loja">
-            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneLoja')" title="Ligar">📞</button>
+          <div class="textfield"><input type="text" id="chamado" placeholder="Chamado Externo"></div>
+          <div class="textfield"><input type="text" id="cervello" placeholder="Chamado Arklok"></div>
+          <div class="textfield"><input type="text" id="patrimonioInfo" placeholder="Número de plaqueta"></div>
+          <div class="textfield">
+            <div class="input-with-button">
+              <input type="text" id="telefoneLoja" placeholder="Telefone Loja">
+              <button type="button" class="phone-button" onclick="abrirLigacao('telefoneLoja')"
+                title="Ligar">📞</button>
+            </div>
+          </div>
+          <div class="textfield">
+            <div class="input-with-button">
+              <input type="text" id="telefoneGerente" placeholder="Telefone Gerente">
+              <button type="button" class="phone-button" onclick="abrirLigacao('telefoneGerente')"
+                title="Ligar">📞</button>
+            </div>
+          </div>
+          <div class="textfield"><textarea id="problema" placeholder="Descreva o problema encontrado..."
+              oninput="aiAnalyze()"></textarea></div>
+          <button class="btn-login" onclick="copiarInformacoes()">Copiar Escopo Cervello</button>
+          <button class="btn-login" style="background: #514869;" onclick="copiarCervello()">Log de Atendimento</button>
+        </div>
+
+        <!-- Tab: Técnico -->
+        <div id="tab-tecnico" class="tab-content hidden">
+          <div class="textfield"><textarea id="procedimentosRemotos"
+              placeholder="Procedimentos executados remotamente"></textarea></div>
+          <button class="btn-login" onclick="copiarChamadoTecnico()">Solicitar Técnico Windows</button>
+          <button class="btn-login" onclick="copiarChamadoTecnicoLibrix()">Solicitar Técnico Librix</button>
+          <button class="btn-login" onclick="solicitacaoTecnicaEquipamentosGerais()">Solicitação Técnica Geral</button>
+        </div>
+
+        <!-- Tab: Equipamento -->
+        <div id="tab-equip" class="tab-content hidden">
+          <div class="textfield"><input type="text" id="patrimonio" placeholder="Número de plaqueta"></div>
+          <div class="textfield"><input type="text" id="modelo" placeholder="Modelo"></div>
+          <div class="textfield"><input type="text" id="modeloSerEnviado" placeholder="Modelo (S) Envio"></div>
+          <div class="textfield"><input type="text" id="sku" placeholder="SKU"></div>
+          <div class="textfield"><input type="text" id="obra" placeholder="Termo"></div>
+          <button class="btn-login" onclick="solicitacaoDeEquipamento()">Solicitar Equipamento</button>
+          <hr style="border-color: var(--glass-border); margin: 20px 0;">
+          <div class="textfield"><input type="text" id="pecaSerEnviado" placeholder="Peça"></div>
+          <button class="btn-login" onclick="solicitacaoDePeca()">Solicitar Peça</button>
+        </div>
+
+        <!-- Tab: Scripts -->
+        <div id="tab-scripts" class="tab-content hidden">
+          <div style="display: grid; grid-template-columns: 1fr; gap: 10px;">
+            <button class="btn-login" onclick="SolicitacaoEstoque()">Aguardando Estoque</button>
+            <button class="btn-login" onclick="SolicitacaoComercial()">Aguardando Comercial</button>
+            <button class="btn-login" onclick="SolicitacaoTranspor()">Aguardando Transportadora</button>
           </div>
         </div>
-        <div class="textfield">
-          <div class="input-with-button">
-            <input type="text" id="telefoneGerente" placeholder="Telefone Gerente">
-            <button type="button" class="phone-button" onclick="abrirLigacao('telefoneGerente')"
-              title="Ligar">📞</button>
+
+        <!-- Tab: IP -->
+        <div id="tab-ip" class="tab-content hidden">
+          <div class="textfield">
+            <input type="text" id="pdvInput" placeholder="Número do PDV">
           </div>
+          <button id="btnConfirmarPDV" class="btn-login" onclick="buscarIP()">Buscar e Copiar IP</button>
+          <div id="meuIP" class="hidden"></div>
         </div>
-        <div class="textfield"><input type="text" id="patrimonio" placeholder="Número de plaqueta"></div>
-        <div class="textfield"><textarea id="problema" placeholder="Problema Encontrado"></textarea></div>
 
-        <button class="btn-login" onclick="copiarInformacoes()">Escopo de Atendimento Cervello</button>
-        <hr>
-
-        <button class="btn-login" onclick="copiarCervello()">Log de Atendimento</button>
-        <hr>
-        <div class="textfield"><textarea id="procedimentosRemotos"
-            placeholder="Procedimentos executados remotamente"></textarea></div>
-        <button class="btn-login" onclick="copiarChamadoTecnico()">Solicitar Técnico Windows</button>
-        <hr>
-        <button class="btn-login" onclick="copiarChamadoTecnicoLibrix()">Solicitar Técnico Librix</button>
-        <hr>
-        <button class="btn-login" onclick="solicitacaoTecnicaEquipamentosGerais()">Solicitação Técnica Equipamentos
-          Gerais</button>
-        <hr>
-        <div class="textfield"><input type="text" id="modelo" placeholder="Modelo"></div>
-        <div class="textfield"><input type="text" id="modeloSerEnviado" placeholder="Modelo (S) Envio"></div>
-        <div class="textfield"><input type="text" id="sku" placeholder="SKU"></div>
-        <div class="textfield"><input type="text" id="obra" placeholder="Termo"></div>
-
-        <button class="btn-login" onclick="solicitacaoDeEquipamento()">Solicitação de Equipamento</button>
-        <hr>
-        <div class="textfield"><input type="text" id="pecaSerEnviado" placeholder="Peça"></div>
-        <button class="btn-login" onclick="solicitacaoDePeca()">Solicitação De Peça</button>
-        <button class="btn-login" onclick="SolicitacaoEstoque()">Solicitação Estoque</button>
-        <button class="btn-login" onclick="SolicitacaoComercial()">Aguardando Comercial</button>
-        <button class="btn-login" onclick="SolicitacaoTranspor()">Aguardando Transportadora</button>
-
+        <button class="btn-login"
+          style="background: transparent; border: 1px solid var(--primary); color: var(--primary); margin-top: 30px;"
+          onclick="limparTudo()">Limpar Tudo</button>
       </div>
-
-      <button class="btn-login" onclick="limparTudo()">Limpar Tudo</button>
 
       <br>
       <a href="https://arklokoffice-my.sharepoint.com/:f:/g/personal/ftp_parceiros_arklokoffice_onmicrosoft_com/EowaVWVNCFRBg7SDWHp7rWgBMfrCeVdigpAamyvchCdklQ?e=GaRMy7"
-        style="color:#f0ffffde;" target="_blank">LINK DA IMAGEM</a><br>
-      <p style="color:#f0ffff94;">Senha: VW*6vsv6T#</p>
+        style="color: var(--text-dim); font-size: 12px;" target="_blank">LINK DA IMAGEM</a>
+      <p style="color: var(--text-dim); font-size: 11px; margin-top: 5px;">Senha: VW*6vsv6T#</p>
     </div>
   </div>
+
+  <div id="toast">Copiado para o clipboard!</div>
 
   <script src="script.js"></script>
   <script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
