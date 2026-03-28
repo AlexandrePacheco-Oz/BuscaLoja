@@ -24,16 +24,6 @@
       <img src="./Login/innovation-animate.svg" class="left-animacao" alt="gato animação">
       <h1>BuscaLoja</h1>
 
-      <!-- AI Assistant Panel -->
-      <div id="aiPanel" class="ai-panel hidden">
-        <div class="ai-icon">✨</div>
-        <div class="ai-suggestion">
-          <p id="aiMessage">Parece que você está relatando um problema de equipamento. Posso ajudar a preencher o
-            formulário.</p>
-          <button onclick="aiApplySuggestions()">Aplicar Sugestões</button>
-        </div>
-      </div>
-
       <!-- Buscar loja -->
       <div class="textfield">
         <label for="searchInput">ID da Loja</label>
@@ -74,6 +64,16 @@
           </div>
           <div class="textfield"><textarea id="problema" placeholder="Descreva o problema encontrado..."
               oninput="aiAnalyze()"></textarea></div>
+
+          <!-- AI Assistant Panel -->
+          <div id="aiPanel" class="ai-panel hidden">
+            <div class="ai-icon">✨</div>
+            <div class="ai-suggestion">
+              <p id="aiMessage">Parece que você está relatando um problema de equipamento. Posso ajudar a preencher o
+                formulário.</p>
+              <button onclick="aiApplySuggestions()">Aplicar Sugestões</button>
+            </div>
+          </div>
           <button class="btn-login" onclick="copiarInformacoes()">Copiar Escopo Cervello</button>
           <button class="btn-login" style="background: #514869;" onclick="copiarCervello()">Log de Atendimento</button>
         </div>
