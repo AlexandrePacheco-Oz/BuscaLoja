@@ -296,7 +296,6 @@ Endereço: ${dados.rua}`;
 
 function SolicitacaoEstoque() {
   const texto = `Solicitado ao Estoque Arklok o envio de um(a) novo(a).
-Plaqueta: ${document.getElementById("patrimonio").value}
 
 Por favor aguarde pelas informações de envio.`;
   copyToClipboard(texto);
@@ -307,7 +306,6 @@ function SolicitacaoComercial() {
 Seu chamado encontra-se atualmente no setor Comercial para tratativa.
 Em breve você receberá um retorno. Assim que houver retorno, avisaremos.
 
-Plaqueta: ${document.getElementById("patrimonio").value}
 
 Quaisquer dúvidas estou à disposição.
 Atenciosamente, Suporte Arklok.`;
@@ -319,8 +317,6 @@ function SolicitacaoTranspor() {
 O chamado já está com a transportadora  para tratativa.
 Assim que houver retorno, avisaremos.
 
-Plaqueta: ${document.getElementById("patrimonio").value}
- 
 Quaisquer dúvidas estou à disposição,
 Atenciosamente Suporte Arklok.`;
   copyToClipboard(texto);
