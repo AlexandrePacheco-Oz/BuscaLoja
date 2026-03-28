@@ -259,7 +259,7 @@ Modelo (S) Envio: ${document.getElementById("modeloSerEnviado").value}
 Contrato: 202300198
 Termo: ${document.getElementById("obra").value}
 Código do cliente: 000678
-LOJA: ${id}
+LOJA: 0001
 SKU: ${document.getElementById("sku").value}
 Imagem: [ ] SIM  [ ] NÃO [ ] N/A
 Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
