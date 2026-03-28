@@ -204,6 +204,9 @@ Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição: ${document.getElementById("problema").value}
 Procedimentos: ${document.getElementById("procedimentosRemotos").value}
 Endereço: ${dados.rua}
+Bairro: ${dados.bairro}
+Cidade: ${dados.cidade}
+CEP: ${dados.cep}
 UF: ${dados.UF || ""}
 
 Instruções para Realização do Reparo do Equipamento Solicitado pela Loja:
