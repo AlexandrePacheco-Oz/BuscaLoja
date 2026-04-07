@@ -125,7 +125,7 @@ async function copyToClipboard(texto, message = "Copiado para o clipboard!") {
 function getBaseInfo(id, dados) {
   return `LOJA - ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
-Chamado Arklok: ${document.getElementById("cervello").value}
+Ticket Arklok: ${document.getElementById("cervello").value}
 Telefone Loja: ${document.getElementById("telefoneLoja").value}
 Telefone Gerente: ${document.getElementById("telefoneGerente").value}
 E-mail: ${dados.email}
@@ -164,7 +164,7 @@ function copiarChamadoTecnico() {
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos Loja - ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
-Chamado Arklok: ${document.getElementById("cervello").value}
+Ticket Arklok: ${document.getElementById("cervello").value}
 Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição Do Chamado: ${document.getElementById("problema").value}
 Procedimentos executados remotamente: ${document.getElementById("procedimentosRemotos").value}
@@ -199,7 +199,7 @@ function copiarChamadoTecnicoLibrix() {
 Prezados,
 Solicitamos Atendimento Técnico Na Pague Menos ${id}
 Chamado Externo: ${document.getElementById("chamado").value}
-Chamado Arklok: ${document.getElementById("cervello").value}
+Ticket Arklok: ${document.getElementById("cervello").value}
 Plaqueta: ${document.getElementById("patrimonio").value}
 Descrição: ${document.getElementById("problema").value}
 Procedimentos: ${document.getElementById("procedimentosRemotos").value}
@@ -255,30 +255,14 @@ function solicitacaoDeEquipamento() {
   if (!dados) return;
 
   const texto = `[ X ] NECESSÁRIO TROCA DE EQUIPAMENTO
-Número de plaqueta Com Problema: ${document.getElementById("patrimonio").value}
-Modelo: ${document.getElementById("modelo").value}
-Modelo (S) Envio: ${document.getElementById("modeloSerEnviado").value}
 
-Contrato: 202300198
-Termo: ${document.getElementById("obra").value}
-Código do cliente: 000678
-LOJA: 0001
-SKU: ${document.getElementById("sku").value}
-Imagem: [ ] SIM  [ ] NÃO [ ] N/A
-Saída: [ ] TÉCNICO [ ] TRANSPORTADORA [ ] CORREIOS [ ] MOTOBOY
-Base: [ ] ITAPEVI [ ] BARRA FUNDA
 Solicitante: ${id}
 Razão Social: ${dados.razaoSocial}
 CNPJ: ${dados.CNPJ}
 Endereço: ${dados.rua}
 Bairro: ${dados.bairro}
 Cidade: ${dados.cidade}
-CEP: ${dados.cep}
-
-**INCLUIR INFORMAÇÕES NF**
-SOLICITANTE: ${id}
-USUÁRIO FINAL: ${id}
-CHAMADO EXTERNO (SE HOUVER): ${document.getElementById("chamado").value}`;
+CEP: ${dados.cep}`;
 
   copyToClipboard(texto, "Solicitação de Equipamento Copiada!");
 }
