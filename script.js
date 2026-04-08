@@ -149,7 +149,7 @@ Problema Encontrado: ${document.getElementById("problema").value}`;
 function copiarCervello() {
   const texto = `Prezados (as):
 Seu chamado foi recebido pela Arklok e, em breve, iremos atender sua solicitação.
-Ticket Arklok:: ${document.getElementById("cervello").value}
+Ticket Arklok: ${document.getElementById("cervello").value}
 
 Prezado(a), o chamado foi encaminhado à equipe de Field Service. Pedimos a gentileza de aguardar o agendamento da visita técnica.`;
   copyToClipboard(texto, "Log de Atendimento Copiado!");
